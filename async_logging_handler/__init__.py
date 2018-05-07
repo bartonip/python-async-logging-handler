@@ -1,7 +1,8 @@
 from logging import FileHandler
 from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
+from log4mongo.handlers import MongoHandler
 from threading import Thread
-from Queue import Queue
+from queue import Queue
 
 
 class AsyncHandlerMixin(object):
@@ -33,4 +34,7 @@ class AsyncRotatingFileHandler(AsyncHandlerMixin, RotatingFileHandler):
 
 
 class AsyncTimedRotatingFileHandler(AsyncHandlerMixin, TimedRotatingFileHandler):
+    pass
+
+class AsyncMongoHandler(AsyncHandlerMixin, MongoHandler):
     pass
